@@ -8,9 +8,6 @@ export default function HomePage() {
 
   return (
     <Fragment>
-      <Head>
-        <title>NextEvents</title>
-      </Head>
       <div>
         <EventList events={featuredEvents} />
       </div>
