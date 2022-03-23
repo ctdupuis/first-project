@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import Button from '../ui/Button';
+import Button from '../ui/button';
 import styles from './events-search.module.css';
 
 export default function EventsSearch(props) {

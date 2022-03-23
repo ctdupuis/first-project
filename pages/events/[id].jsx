@@ -3,7 +3,9 @@ import { Fragment } from "react";
 import { getEventById } from "../../dummy_data";
 import EventSummary from "../../components/events/event-detail/event-summary";
 import EventLogistics from "../../components/events/event-detail/event-logistics";
-import EventContent from "../../components/events/event-detail/event-content"
+import EventContent from "../../components/events/event-detail/event-content";
+import ErrorAlert from "../../components/ui/error-alert/error-alert";
+import Button from "../../components/ui/button";
 
 export default function EventDetailPage() {
   const router = useRouter();
@@ -12,7 +14,16 @@ export default function EventDetailPage() {
   const event = getEventById(id);
 
   if (!event) {
-    return <p>No event found</p>
+    return (
+      <Fragment>
+        <ErrorAlert>
+          <p>No event found</p>
+        </ErrorAlert>
+        <div className="center">
+          <Button link={"/events"}>Show All Events</Button>
+        </div>
+      </Fragment>
+    )
   }
 
   return (
