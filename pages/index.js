@@ -1,16 +1,21 @@
-import Head from 'next/head';
 import { Fragment } from 'react';
 import EventList from '../components/events/event-list';
-import { getFeaturedEvents } from '../dummy_data';
+import { getFeaturedEvents } from '../helpers/api-util';
 
-export default function HomePage() {
-  const featuredEvents = getFeaturedEvents();
+export default function HomePage(props) {
 
-  return (
-    <Fragment>
-      <div>
-        <EventList events={featuredEvents} />
-      </div>
-    </Fragment>
+  return ( 
+    <div>
+      <EventList events={props.events} />
+    </div>
   )
+}
+
+export async function getStaticProps() {
+  const featuredEvents = await getFeaturedEvents();
+  return { 
+    props: {
+      events: featuredEvents
+    }
+  }
 }
