@@ -4,14 +4,14 @@ import LogisticsItem from './logistics-item';
 import classes from './event-logistics.module.css';
 
 function EventLogistics(props) {
-  const { date, address, image, imageAlt } = props;
+  const { date, location, image, imageAlt } = props;
 
   const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
   });
-  const addressText = address.replace(', ', '\n');
+  const addressText = location.replace(', ', '\n');
 
   return (
     <section className={classes.logistics}>
